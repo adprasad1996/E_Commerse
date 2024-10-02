@@ -10,7 +10,7 @@ function CardComp({ obj = {} }) {
   
   const handleAddToCart = (object)=> {
     dispatch(addItem(object))
-    setIsAdded(!isAdded)
+    setIsAdded(true)
     console.log()
 
   }
@@ -27,7 +27,7 @@ function CardComp({ obj = {} }) {
       )}
       <p>rating: {"*".repeat(rating.rate)+`(${rating.count})`}</p>
       <p>Price: {price}</p>
-      <button className={isAdded?'btn btn-secondary':'btn btn-primary' } onClick={()=> handleAddToCart(obj)}>{isAdded? "Added": "Add To Cart"}</button>      
+      <button className={isAdded?'btn btn-secondary':'btn btn-primary' } onClick={()=> handleAddToCart(obj)}>{isAdded? "Added": "Add to cart"}</button>      
     </div>
   );
 }
