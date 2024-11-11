@@ -1,17 +1,24 @@
 import React, {useState} from 'react';
-import { useDispatch } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import { addItem, removeItem } from '../store/cartSlice';
 
 function CardComp({ obj = {} }) {
   const [isAdded, setIsAdded] = useState(false)
   const { title = 'No Title', description = 'No Description', image, rating, count = 0, price = 'N/A' } = obj;
-  
+  const cartItemsList = useSelector((store) => store.cart.items);
   const dispatch = useDispatch()
   
   const handleAddToCart = (object)=> {
+    const findIndex = cartItemsList.includes(object)
+    if(findIndex){
+
+    }else{
+      
+    }
+    console.log(findIndex)
     dispatch(addItem(object))
     setIsAdded(true)
-    console.log()
+    
 
   }
   
