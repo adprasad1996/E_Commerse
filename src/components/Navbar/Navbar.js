@@ -1,24 +1,56 @@
-import React from 'react'
-import { Link } from 'react-router-dom'
-import Shimmer from '../shimmer/Shimmer'
+import React from 'react';
+import { Link } from 'react-router-dom';
 import { useSelector } from 'react-redux';
 
 function Navbar() {
   const cart = useSelector((store) => store.cart.items);
+
   return (
-    <div className='nav_card d-flex justify-content-between align-items-center'>
-            <div className='logo_card'>               
-                <img style={{height: '70px', width: '70px', borderRadius: "40px"}} src='https://miro.medium.com/v2/resize:fit:1400/1*Qw11nbTP2pBb08x-H2WDSA.png' alt = 'logo'/>
-            </div>
-            <ul className='tabs_card d-flex list-unstyled p-2 justify-content-center align-items-center'>
-                <li style={{padding: "5px"}}><Link to = '/'>Home</Link></li>
-                <li style={{padding: "5px"}}><Link to = '/about'>About us</Link></li>
-                <li style={{padding: "5px"}}><Link to = '/contact'>Contact us</Link></li>
-                <li style={{padding: "5px"}}><Link to = '/cart'>Cart({cart.length})</Link></li>
-            </ul>
-            
+    <>
+      {/* Fixed Navbar */}
+      <nav className="navbar navbar-expand-lg navbar-dark bg-dark px-4 position-fixed w-100" style={{ zIndex: 1000, top: 0 }}>
+      <div className="logo d-flex align-items-center">
+            <h2 className="text-white fw-bold" style={{
+              background: "linear-gradient(to right, #ff7e5f, #feb47b)",
+              WebkitBackgroundClip: "text",
+              WebkitTextFillColor: "transparent",
+              fontWeight: "bold",
+              fontSize: "24px"
+            }}>
+              P Fashion
+            </h2>
+          </div>
+
+        <button className="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+          <span className="navbar-toggler-icon"></span>
+        </button>
+
+        <div className="collapse navbar-collapse justify-content-end" id="navbarNav">
+          <ul className="navbar-nav">
+            <li className="nav-item">
+              <Link to="/" className="nav-link text-white">Home</Link>
+            </li>
+            <li className="nav-item">
+              <Link to="/about" className="nav-link text-white">About Us</Link>
+            </li>
+            <li className="nav-item">
+              <Link to="/contact" className="nav-link text-white">Contact Us</Link>
+            </li>
+            <li className="nav-item">
+              <Link to="/cart" className="nav-link text-white">
+                Cart <span className="badge bg-danger ms-1">{cart.length}</span>
+              </Link>
+            </li>
+          </ul>
         </div>
-  )
+      </nav>
+
+      {/* ✅ Space below Navbar */}
+      <div style={{ paddingTop: '58px' }}>
+        {/* Your main content will go here */}
+      </div>
+    </>
+  );
 }
 
-export default Navbar
+export default Navbar;

@@ -1,0 +1,28 @@
+
+ul{
+    list-style-type: none;
+    
+}
+
+.sidenav-bg{
+    background-color: rgb(80, 8, 87);
+    width: 10%;
+    height: 100vh;
+    
+}
+ul li a{
+    color: #ffffff;
+    text-decoration: none;
+    font-size: 25px;
+    padding: 10px;
+    font-weight: bold;
+    
+    
+}
+.side-nav-item{
+    margin-top: 20px;
+
+}
+ul li a:hover{
+    background-color: blue;
+}
